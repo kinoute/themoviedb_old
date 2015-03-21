@@ -76,6 +76,11 @@ module Tmdb
       search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/external_ids")
       search.fetch_response
     end
+    
+    def self.alternative_titles(id, conditions={})
+      search = Tmdb::Search.new("/#{self.endpoints[:singular]}/#{self.endpoint_id + id.to_s}/alternative_titles")
+      search.fetch_response
+    end
 
     #Get the images (posters and backdrops) for a TV series.
     def self.images(id, conditions={})
